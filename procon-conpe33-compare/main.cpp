@@ -1,3 +1,4 @@
+#include <iostream>
 #include <fstream>
 #include <string>
 #include <vector>
@@ -33,7 +34,7 @@ vector<int> split(const string &s)
 int main()
 {
     
-    vector<vector<int>> problem_data();
+    vector<vector<int>> problem_data(1);
 
     ifstream read_file;
     read_file.open("../problem.txt", ios::in);
@@ -49,4 +50,12 @@ int main()
         problem_data.push_back(buffer);
     }
 
+    for (auto i: problem_data)
+    {
+        for (auto j: i)
+        {
+            printf("%4d", j);
+        }
+        cout << endl;
+    }
 }
