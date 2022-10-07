@@ -9,23 +9,23 @@ def main():
         print(i)
         data, fs = wav_read('../sound-data/J0' + str(i) + '.wav')
         Sxx = stft(data, fs)
-        np.savetxt('../data/J' + str(i) + '.txt', Sxx, delimiter=' ')
+        np.savetxt('../data/J' + str(i) + '.txt', Sxx, delimiter=' ', fmt='%d')
     for i in range(10, 45):
         print(i)
         data, fs = wav_read('../sound-data/J' + str(i) + '.wav')
         Sxx = stft(data, fs)
-        np.savetxt('../data/J' + str(i) + '.txt', Sxx, delimiter=' ')
+        np.savetxt('../data/J' + str(i) + '.txt', Sxx, delimiter=' ', fmt='%d')
 
     for i in range(1, 10):
         print(i)
         data, fs = wav_read('../sound-data/E0' + str(i) + '.wav')
         Sxx = stft(data, fs)
-        np.savetxt('../data/E' + str(i) + '.txt', Sxx, delimiter=' ')
+        np.savetxt('../data/E' + str(i) + '.txt', Sxx, delimiter=' ', fmt='%d')
     for i in range(10, 45):
         print(i)
         data, fs = wav_read('../sound-data/E' + str(i) + '.wav')
         Sxx = stft(data, fs)
-        np.savetxt('../data/E' + str(i) + '.txt', Sxx, delimiter=' ')
+        np.savetxt('../data/E' + str(i) + '.txt', Sxx, delimiter=' ', fmt='%d')
 
 def wav_read(path):
     data, fs = sf.read(path)
@@ -33,6 +33,7 @@ def wav_read(path):
 
 def stft(data, fs):
     f, t, Sxx = signal.spectrogram(data, fs, window='han', nperseg=512)
+    print(Sxx)
     Sxx = 20*np.log10(Sxx)
     Sxx = Sxx - Sxx.max()
     return Sxx
