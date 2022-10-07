@@ -2,7 +2,7 @@ CC = g++
 
 CFLAGS = -O3 -mtune=native -march=native -mfpmath=both
 
-TARGET = Compare.exe
+TARGET = a.out
 
 SRCS = main.cpp compare.cpp readfile.cpp
 
