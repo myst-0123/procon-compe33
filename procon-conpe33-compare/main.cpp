@@ -8,7 +8,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-    bool is_japanese = stoi(argv[0]);
+    bool is_japanese = stoi(argv[1]);
 
     vector<vector<int>> problem_data;
 

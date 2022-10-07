@@ -21,8 +21,7 @@ vector<pair<int, double>> compare(vector<vector<int>> problem_data, bool mode)
         {
             vector<vector<int>> compare_data;
             vector<double> avg_match_rate;
-            compare_data = read_file("../J/" + to_string(i) + ".txt");
-
+            compare_data = read_file("../data/J" + to_string(i) + ".txt");
             int compare_length = compare_data[1].size();
             for (int j = 0; j < problem_length - compare_length; j++)
             {
@@ -38,6 +37,7 @@ vector<pair<int, double>> compare(vector<vector<int>> problem_data, bool mode)
             }
             sort(avg_match_rate.rbegin(), avg_match_rate.rend());
             match_rate.push_back(make_pair(i, avg_match_rate[0]));
+            cout << avg_match_rate[0] << endl;
         }
     }
     else
@@ -46,7 +46,7 @@ vector<pair<int, double>> compare(vector<vector<int>> problem_data, bool mode)
         {
             vector<vector<int>> compare_data;
             vector<double> avg_match_rate;
-            compare_data = read_file("../E/" + to_string(i) + ".txt");
+            compare_data = read_file("../data/E" + to_string(i) + ".txt");
 
             int compare_length = compare_data[1].size();
             for (int j = 0; j < problem_length - compare_length; j++)
