@@ -16,7 +16,7 @@ def wav_read(path):
 def stft(data, fs):
     f, t, Sxx = signal.spectrogram(data, fs, window='han', nperseg=512)
     Sxx = 20*np.log10(Sxx)
-    Sxx = Sxx - Sxx.max()
+    Sxx = Sxx - (Sxx.max() - 1) 
     return Sxx
 
 if __name__ == '__main__':
