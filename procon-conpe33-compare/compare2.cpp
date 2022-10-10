@@ -1,6 +1,6 @@
 #include "compare2.hpp"
 
-vector<pair<string, double>> compare2(vector<vector<int>> problem_data, bool mode)
+vector<pair<string, double>> compare2(vector<vector<int>> problem_data)
 {
     cout << "----Function compare----" << endl;
     vector<pair<string, double>> match_rate;
@@ -76,7 +76,7 @@ vector<pair<string, double>> compare2(vector<vector<int>> problem_data, bool mod
             avg_match_rate.push_back(correct / (double)all);
         }
         sort(avg_match_rate.rbegin(), avg_match_rate.rend());
-        match_rate.push_back(make_pair("J" + to_string(i), avg_match_rate[0]));
+        match_rate.push_back(make_pair("E" + to_string(i), avg_match_rate[0]));
         cout << avg_match_rate[0] << endl;
     }
 

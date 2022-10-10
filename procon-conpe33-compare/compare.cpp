@@ -3,7 +3,7 @@
 double find_match_rate(int problem, int compare)
 {
     int error = abs(problem - compare);
-    double error_rate = abs(error / 20);
+    double error_rate = abs(error / 30);
     if (error_rate > 1)
     {
         error_rate = 1;
@@ -11,7 +11,7 @@ double find_match_rate(int problem, int compare)
     return 1 - error_rate;
 }
 
-vector<pair<string, double>> compare(vector<vector<int>> problem_data, bool mode)
+vector<pair<string, double>> compare(vector<vector<int>> problem_data)
 {
     cout << "----Function compare----" << endl;
     vector<pair<string, double>> match_rate;
