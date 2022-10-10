@@ -1,4 +1,5 @@
 *.txt
 *.out
+*.pyc
 sound-data
 data
