@@ -20,26 +20,27 @@ vector<pair<int, double>> compare2(vector<vector<int>> problem_data, bool mode)
 
             int compare_length = compare_data[1].size();
 
-            int correct;
-
-            cout << problem_data.size() << " " << compare_data.size() << endl;
+            int correct, all;
 
             for (int j = 0; j < problem_length - compare_length; j++)
             {
                 correct = 0;
+                all = 0;
                 for (int k = 1; k < freq-1; k++)
                 {
-                    for (int m = j; m < compare_length; m++)
+                    for (int m = 0; m < compare_length; m++)
                     {
-                        if(problem_data[k][m] && compare_data[k][m])
+                        if (compare_data[k][m] == 1)
                         {
-                            correct++;
+                            all++;
+                            if(problem_data[k][m + j] == 1)
+                            {
+                                correct++;
+                            }
                         }
                     }
                 }
-                cout << "correct: " << correct << " All: " << compare_length * freq << endl;
-                avg_match_rate.push_back(correct / (double)(compare_length * freq));
-                cout << correct / (double)(compare_length * freq) << endl;
+                avg_match_rate.push_back(correct / (double)all);
             }
             sort(avg_match_rate.rbegin(), avg_match_rate.rend());
             match_rate.push_back(make_pair(i, avg_match_rate[0]));
@@ -57,23 +58,27 @@ vector<pair<int, double>> compare2(vector<vector<int>> problem_data, bool mode)
 
             int compare_length = compare_data[1].size();
 
-            int correct = 0;
-
-            cout << problem_data.size() << " " << compare_data.size() << endl;
+            int correct, all;
 
             for (int j = 0; j < problem_length - compare_length; j++)
             {
+                correct = 0;
+                all = 0;
                 for (int k = 1; k < freq-1; k++)
                 {
-                    for (int m = j; m < compare_length; m++)
+                    for (int m = 0; m < compare_length; m++)
                     {
-                        if(problem_data[k][m] == compare_data[k][m])
+                        if (compare_data[k][m] == 1)
                         {
-                            correct++;
+                            all++;
+                            if(problem_data[k][m + j] == 1)
+                            {
+                                correct++;
+                            }
                         }
                     }
                 }
-                avg_match_rate.push_back(correct / compare_length * freq);
+                avg_match_rate.push_back(correct / (double)all);
             }
             sort(avg_match_rate.rbegin(), avg_match_rate.rend());
             match_rate.push_back(make_pair(i, avg_match_rate[0]));
