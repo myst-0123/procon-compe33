@@ -9,4 +9,4 @@ using namespace std;
 
 double find_match_rate(int problem, int compare);
 
-vector<pair<int, double>> compare(vector<vector<int>> data, bool mode);
+vector<pair<string, double>> compare(vector<vector<int>> data, bool mode);
