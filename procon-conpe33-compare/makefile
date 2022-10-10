@@ -1,6 +1,6 @@
 CC = g++
 
-CFLAGS = -O3 -mtune=native -march=native -mfpmath=both
+CFLAGS = -O2 -Wall
 
 TARGET = a.out
 
