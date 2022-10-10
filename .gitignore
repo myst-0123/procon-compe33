@@ -1,0 +1,7 @@
+*.out
+*.txt
+*.o
+*.out
+sound-data
+data
+.vscode/settings.json
