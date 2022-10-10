@@ -3,8 +3,12 @@
 double find_match_rate(int problem, int compare)
 {
     int error = abs(problem - compare);
-    double error_rate = abs(error / 30);
-    return error_rate;
+    double error_rate = abs(error / 20);
+    if (error_rate > 1)
+    {
+        error_rate = 1;
+    }
+    return 1 - error_rate;
 }
 
 vector<pair<int, double>> compare(vector<vector<int>> problem_data, bool mode)
