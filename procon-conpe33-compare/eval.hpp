@@ -5,6 +5,6 @@
 
 using namespace std;
 
-bool comp(pair<int, double> lhs, pair<int, double> rhs);
+bool comp(pair<string, double> lhs, pair<string, double> rhs);
 
-void eval(vector<pair<int, double>> &result, vector<pair<int, double>> &result2);
+void eval(vector<pair<string, double>> &result, vector<pair<string, double>> &result2);
