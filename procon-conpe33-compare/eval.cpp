@@ -11,12 +11,12 @@ void eval(vector<pair<string, double>> &result, vector<pair<string, double>> &re
 
     for (int i = 0; i < 44; i++)
     {
-        double score = result[i].second + result2[i].second;
+        double score = (result[i].second + 2*result2[i].second) / 3;
         scores.push_back(make_pair("J" + to_string(i+1), score));
     }
     for (int i = 44; i < 88; i++)
     {
-        double score = result[i].second + result2[i].second;
+        double score = (result[i].second + 2*result2[i].second) / 3;
         scores.push_back(make_pair("E" + to_string(i-43), score));
     }
 
@@ -26,6 +26,6 @@ void eval(vector<pair<string, double>> &result, vector<pair<string, double>> &re
     cout << "----result---------result2---------score----" << endl;
     for (int i = 0; i < 88; i++)
     {
-        printf("%3s %lf    %3s %lf    %3s %lf \n", result[i].first.c_str(), result[i].second, result2[i].first.c_str(), result2[i].second, scores[i].first.c_str(), scores[i].second);
+        printf("%3s %lf | %3s %lf |  %3s %lf \n", result[i].first.c_str(), result[i].second, result2[i].first.c_str(), result2[i].second, scores[i].first.c_str(), scores[i].second);
     }
 }
