@@ -36,8 +36,8 @@ def wav_read(path):
     return data, fs
 
 def stft(data, fs):
-    threshold = -50
-    f, t, Sxx = signal.spectrogram(data, fs, window='han', nperseg=512, noverlap=128)
+    threshold = -60
+    f, t, Sxx = signal.spectrogram(data, fs, window='han', nperseg=2048, noverlap=256)
     Sxx = 20*np.log10(Sxx)
     Sxx = Sxx - Sxx.max() - 1
 
