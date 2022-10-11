@@ -23,19 +23,9 @@ void eval(vector<pair<string, double>> &result, vector<pair<string, double>> &re
     sort(result.rbegin(), result.rend(), comp);
     sort(result2.rbegin(), result2.rend(), comp);
     sort(scores.rbegin(), scores.rend(), comp);
-    cout << "---------result------------" << endl;
-    for (auto i: result)
+    cout << "----result---------result2---------score----" << endl;
+    for (int i = 0; i < 88; i++)
     {
-        printf("%3s %lf\n", i.first.c_str(), i.second);
-    }
-    cout << "--------result2------------" << endl;
-    for (auto i: result2)
-    {
-        printf("%3s %lf\n", i.first.c_str(), i.second);
-    }
-    cout << "---------score-------------" << endl;
-    for (auto i: scores)
-    {
-        printf("%3s %lf\n", i.first.c_str(), i.second);
+        printf("%3s %lf    %3s %lf    %3s %lf \n", result[i].first.c_str(), result[i].second, result2[i].first.c_str(), result2[i].second, scores[i].first.c_str(), scores[i].second);
     }
 }
