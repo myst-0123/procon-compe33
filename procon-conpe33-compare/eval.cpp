@@ -26,16 +26,16 @@ void eval(vector<pair<string, double>> &result, vector<pair<string, double>> &re
     cout << "---------result------------" << endl;
     for (auto i: result)
     {
-        printf("%s %lf\n", i.first.c_str(), i.second);
+        printf("%3s %lf\n", i.first.c_str(), i.second);
     }
     cout << "--------result2------------" << endl;
     for (auto i: result2)
     {
-        printf("%s %lf\n", i.first.c_str(), i.second);
+        printf("%3s %lf\n", i.first.c_str(), i.second);
     }
     cout << "---------score-------------" << endl;
     for (auto i: scores)
     {
-        printf("%s %lf\n", i.first.c_str(), i.second);
+        printf("%3s %lf\n", i.first.c_str(), i.second);
     }
 }

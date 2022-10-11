@@ -3,7 +3,7 @@
 double find_match_rate(int problem, int compare)
 {
     int error = abs(problem - compare);
-    double error_rate = abs(error / 30);
+    double error_rate = abs(error / 25);
     if (error_rate > 1)
     {
         error_rate = 1;
