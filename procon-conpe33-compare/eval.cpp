@@ -11,12 +11,12 @@ void eval(vector<pair<string, double>> &result, vector<pair<string, double>> &re
 
     for (int i = 0; i < 44; i++)
     {
-        double score = (result[i].second + 2*result2[i].second) / 3;
+        double score = (result[i].second + result2[i].second) / 2;
         scores.push_back(make_pair("J" + to_string(i+1), score));
     }
     for (int i = 44; i < 88; i++)
     {
-        double score = (result[i].second + 2*result2[i].second) / 3;
+        double score = (result[i].second + result2[i].second) / 2;
         scores.push_back(make_pair("E" + to_string(i-43), score));
     }
 
