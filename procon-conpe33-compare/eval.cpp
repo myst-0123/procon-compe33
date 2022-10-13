@@ -14,23 +14,23 @@ void eval(vector<pair<string, double>> &result, vector<pair<string, double>> &re
         double score = (result[i].second + result2[i].second) / 2;
         if (i <= 9)
         {
-            scores.push_back(make_pair("0" + to_string(i+1), score));
+            scores.push_back(make_pair("J0" + to_string(i+1), score));
         }
         else
         {
-            scores.push_back(make_pair(to_string(i+1), score));
+            scores.push_back(make_pair("J" + to_string(i+1), score));
         }
     }
     for (int i = 44; i < 88; i++)
     {
         double score = (result[i].second + result2[i].second) / 2;
-        if (i <= 53)
+        if (i <= 52)
         {
-            scores.push_back(make_pair("0" + to_string(i-44), score));
+            scores.push_back(make_pair("E0" + to_string(i-43), score));
         }
         else
         {
-            scores.push_back(make_pair(to_string(i-44), score));
+            scores.push_back(make_pair("E" + to_string(i-43), score));
         }
     }
 

@@ -10,9 +10,9 @@ void output(vector<pair<string, double>> score)
     vector<string> answer;
     while (i < problem_data["data"])
     {
-        if (find(answer.begin(), answer.end(), score[j].first) == answer.end())
+        if (find(answer.begin(), answer.end(), score[j].first.substr(1, 2)) == answer.end())
         {
-            answer.push_back(score[j].first);
+            answer.push_back(score[j].first.substr(1, 2));
             i++;
         }
         j++;
