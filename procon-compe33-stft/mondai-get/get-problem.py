@@ -7,7 +7,7 @@ import os
 from webbrowser import get
 
 global_url = 'https://procon33-practice.kosen.work'
-global_jsonfile = 'ファイルパス'
+global_jsonfile = './solution.json'
 
 TOKEN = os.environ.get("TOKEN")
 
