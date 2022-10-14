@@ -4,7 +4,10 @@
 *.out
 *.pyc
 *.json
+*.wav
 
+nlohmann
 sound-data
 data
-nlohmann
+.vscode/settings.json
+.env
