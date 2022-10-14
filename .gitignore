@@ -3,6 +3,7 @@
 *.o
 *.out
 *.pyc
+*.wav
 sound-data
 data
 .vscode/settings.json
