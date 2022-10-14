@@ -18,13 +18,13 @@ void output(vector<pair<string, double>> score)
         j++;
     }
 
-    json output_data;
-
-    output_data["answers"] = answer;
-    output_data["problem_id"] = problem_data["id"];
+    json output_data = {
+        {"problem_id", problem_data["id"]},
+        {"answers", answer}
+    };
 
     ofstream ofs("../solution.json");
 
-    ofs << output_data << endl;
+    ofs << setw(4) << output_data << endl;
 
 }
