@@ -12,12 +12,26 @@ void eval(vector<pair<string, double>> &result, vector<pair<string, double>> &re
     for (int i = 0; i < 44; i++)
     {
         double score = (result[i].second + result2[i].second) / 2;
-        scores.push_back(make_pair("J" + to_string(i+1), score));
+        if (i <= 9)
+        {
+            scores.push_back(make_pair("J0" + to_string(i+1), score));
+        }
+        else
+        {
+            scores.push_back(make_pair("J" + to_string(i+1), score));
+        }
     }
     for (int i = 44; i < 88; i++)
     {
         double score = (result[i].second + result2[i].second) / 2;
-        scores.push_back(make_pair("E" + to_string(i-43), score));
+        if (i <= 52)
+        {
+            scores.push_back(make_pair("E0" + to_string(i-43), score));
+        }
+        else
+        {
+            scores.push_back(make_pair("E" + to_string(i-43), score));
+        }
     }
 
     sort(result.rbegin(), result.rend(), comp);
@@ -28,4 +42,6 @@ void eval(vector<pair<string, double>> &result, vector<pair<string, double>> &re
     {
         printf("%3s %lf | %3s %lf |  %3s %lf \n", result[i].first.c_str(), result[i].second, result2[i].first.c_str(), result2[i].second, scores[i].first.c_str(), scores[i].second);
     }
+
+    output(scores);
 }
