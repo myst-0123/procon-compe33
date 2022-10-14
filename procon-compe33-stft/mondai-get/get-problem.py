@@ -91,7 +91,6 @@ def get_chunks(number):
 
 def get_wavfile(filename):
 	try:
-		# url = 'https://procon33-practice.kosen.work/problem/chunks/problem1_82c4b8ad91433a10d5f2068de0cf113b3d029b77f997f05a165abd5a72046e00.wav?token=c859ad6da1361fc4f86e21b243176392b4d66a74cfa082ee401f934cef5022e1'
 		url = global_url + "/problem/chunks/" + filename
 		print(url)
 		headers = {
