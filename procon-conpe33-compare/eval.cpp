@@ -12,7 +12,7 @@ void eval(vector<pair<string, double>> &result, vector<pair<string, double>> &re
     for (int i = 0; i < 44; i++)
     {
         double score = (result[i].second + result2[i].second) / 2;
-        if (i <= 9)
+        if (i <= 8)
         {
             scores.push_back(make_pair("J0" + to_string(i+1), score));
         }
