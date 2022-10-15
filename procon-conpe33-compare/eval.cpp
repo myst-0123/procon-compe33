@@ -43,5 +43,5 @@ void eval(vector<pair<string, double>> &result, vector<pair<string, double>> &re
         printf("%3s %lf | %3s %lf |  %3s %lf \n", result[i].first.c_str(), result[i].second, result2[i].first.c_str(), result2[i].second, scores[i].first.c_str(), scores[i].second);
     }
 
-    output(scores);
+    output(result, result2, scores);
 }
