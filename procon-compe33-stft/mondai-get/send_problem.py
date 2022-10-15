@@ -1,4 +1,3 @@
-from pydub import AudioSegment
 import json
 import urllib.request
 from urllib.error import URLError
@@ -17,24 +16,14 @@ print(TOKEN)
 
 def main():
 	# testコード
-	create_problemjson()
-	json_problen = get_problem()
-	print(json_problen['chunks'])
-	print(json_problen['id'])
-	problem_wev = get_chunks(json_problen['chunks'])
-	print(problem_wev)
-	sound = AudioSegment.from_file("a.wav","wav")
-	for i in problem_wev['chunks']:
-		print(i)
-		get_wavfile(i,json_problen['id'])
-		sound1 = AudioSegment.from_file(i, "wav")
-		sound = sound + sound1
-
-	sound.export("problem.wav", format="wav")
 
 
 
+	with open(global_jsonfile) as f:
+		json_answer = json.load(f)
 
+	anstime = post_problem(json_answer)
+	print(anstime)
 
 def create_problemjson():
 	match = get_match()
@@ -142,6 +131,7 @@ def post_problem(answer):
 	with urllib.request.urlopen(req) as res:
 		body = res.read()
 	json_data = json.loads(body)
+
 	val = json_data["accepted_at"]
 	return val
 
