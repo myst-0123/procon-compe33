@@ -45,7 +45,10 @@ vector<pair<string, double>> compare2(vector<vector<int>> problem_data)
         }
 
         sort(avg_match_rate.rbegin(), avg_match_rate.rend());
-        match_rate.push_back(make_pair("J" + to_string(i), avg_match_rate[0]));
+        if (i <= 9)
+            match_rate.push_back(make_pair("J0" + to_string(i), avg_match_rate[0]));
+        else
+            match_rate.push_back(make_pair("J" + to_string(i), avg_match_rate[0]));
     }
     for (int i = 1; i <= 44; i++)
     {
@@ -82,7 +85,10 @@ vector<pair<string, double>> compare2(vector<vector<int>> problem_data)
             }
         }
         sort(avg_match_rate.rbegin(), avg_match_rate.rend());
-        match_rate.push_back(make_pair("E" + to_string(i), avg_match_rate[0]));
+        if (i <= 9)
+            match_rate.push_back(make_pair("E0" + to_string(i), avg_match_rate[0]));
+        else
+            match_rate.push_back(make_pair("E" + to_string(i), avg_match_rate[0]));
     }
 
     return match_rate;
