@@ -7,7 +7,7 @@ from urllib.error import HTTPError
 import os
 from webbrowser import get
 
-global_url = 'https://procon33-practice.kosen.work'
+global_url = 'http://172.28.1.1:80'
 global_jsonfile = './solution.json'
 
 TOKEN = os.environ.get("TOKEN")
@@ -17,23 +17,26 @@ print(TOKEN)
 
 def main():
 	# testコード
-	create_problemjson()
+	# create_problemjson()
 	json_problen = get_problem()
 	print(json_problen['chunks'])
 	print(json_problen['id'])
-	problem_wev = get_chunks(json_problen['chunks'])
+	problem_wev = get_chunks(json_problen)
 	print(problem_wev)
-	sound = AudioSegment.from_file("a.wav","wav")
 	for i in problem_wev['chunks']:
 		print(i)
 		get_wavfile(i,json_problen['id'])
-		sound1 = AudioSegment.from_file(i, "wav")
-		sound = sound + sound1
+	
+	print(problem_wev['chunks'])
+	print(type(problem_wev['chunks']))
+	sorted_problem = sorted(problem_wev['chunks'])
 
-	sound.export("problem.wav", format="wav")
-
-
-
+	sound = AudioSegment.from_file(sorted_problem[0], 'wav')
+	for i in sorted_problem[1:]:
+		buffer = AudioSegment.from_file(i, 'wav')
+		sound = sound + buffer
+	
+	sound.export('../../sound-data/problem.wav', 'wav')
 
 
 def create_problemjson():
@@ -42,11 +45,8 @@ def create_problemjson():
 	chunks = get_chunks(problem['chunks'])
 	val = match.update(problem,**chunks)
 	print(val)
-	filename = "./" + "problem.json"
 	os.makedirs("./"+problem["id"], exist_ok=True)
-	with open(filename, mode="w") as f:
-		f.write(json.dumps(problem))
-	with open("./"+ problem["id"]+"/problem.json", mode="w") as f:
+	with open("/home//problem.json", mode="w") as f:
 		f.write(json.dumps(problem))
 
 def get_match():
@@ -54,8 +54,6 @@ def get_match():
 		problem = get_problem()
 		response = urllib.request.urlopen(global_url + "/match?token=" + TOKEN)
 		json_data = json.loads(response.read())
-		with open("./"+ problem["id"]+"/problem.json", mode="w") as f:
-			f.write(json.dumps(problem))
 		return json_data
 	except HTTPError as e:
 		print('raise HTTPError')
@@ -70,6 +68,11 @@ def get_problem():
 	try:
 		response = urllib.request.urlopen(global_url + "/problem?token=" + TOKEN)
 		json_data = json.loads(response.read())
+		with open("../../problem-data.json", mode="w") as f:
+			f.write(json.dumps(json_data))
+		os.makedirs("./"+json_data["id"], exist_ok=True)
+		with open("./" + json_data['id'] + '/problem-data.json', mode="w") as f:
+			f.write(json.dumps(json_data))
 		val = json_data
 		return val
 	except HTTPError as e:
@@ -81,9 +84,9 @@ def get_problem():
 		print(e)
 		return False
 
-def get_chunks(number):
+def get_chunks(data):
 	try:
-		url = global_url + "/problem/chunks?n=" + str(number)
+		url = global_url + "/problem/chunks?n=" + str(data['chunks'])
 		print(url)
 
 		headers = {
@@ -93,6 +96,8 @@ def get_chunks(number):
 		req = urllib.request.Request(url,deta,headers=headers)
 		response = urllib.request.urlopen(req)
 		json_data = json.loads(response.read())
+		with open("./" + data['id'] + '/problem-chunks.json', mode="w") as f:
+			f.write(json.dumps(json_data))
 		return json_data
 	except HTTPError as e:
 		print('raise HTTPError')

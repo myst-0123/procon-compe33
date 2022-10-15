@@ -6,8 +6,8 @@ from urllib.error import HTTPError
 import os
 from webbrowser import get
 
-global_url = 'https://procon33-practice.kosen.work'
-global_jsonfile = './solution.json'
+global_url = 'http://172.28.1.1:80'
+global_jsonfile = '../../solution.json'
 
 TOKEN = os.environ.get("TOKEN")
 
@@ -16,8 +16,6 @@ print(TOKEN)
 
 def main():
 	# testコード
-
-
 
 	with open(global_jsonfile) as f:
 		json_answer = json.load(f)
